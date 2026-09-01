@@ -5,7 +5,7 @@
  * npm run dev
  */
 
-import { SimpleEventEmitter, type EventMap } from "./exercise08.js";
+import { extractAdmins, type AdminUser,type GuestUser } from "./exercise09.js";
 
 // Example:
 // import { formatName } from './exercise01.js';
@@ -40,15 +40,31 @@ import { SimpleEventEmitter, type EventMap } from "./exercise08.js";
 // console.log(stack.size());
 // console.log(calculateSubjectAverage("Math"));
 // console.log(calculateSubjectAverage("History"));
-const emitter = new SimpleEventEmitter<EventMap>();
+// const emitter = new SimpleEventEmitter<EventMap>();
 
-emitter.on("launch", (data) => {
-  console.log("Launch:", data);
-});
+// emitter.on("launch", (data) => {
+//   console.log("Launch:", data);
+// });
 
-emitter.on("shutdown", (data) => {
-  console.log("Shutdown:", data);
-});
+// emitter.on("shutdown", (data) => {
+//   console.log("Shutdown:", data);
+// });
 
-emitter.emit("launch", "Rocket launched!");
-emitter.emit("shutdown", 10);
+// emitter.emit("launch", "Rocket launched!");
+// emitter.emit("shutdown", 10);
+const users: Array<AdminUser | GuestUser> = [
+  {
+    adminId: "A001",
+    permissions: ["read", "write"],
+  },
+  {
+    guestToken: "G001",
+    expiresAt: new Date(),
+  },
+  {
+    adminId: "A002",
+    permissions: ["read"],
+  },
+];
+
+console.log(extractAdmins(users));
