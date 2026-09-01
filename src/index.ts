@@ -5,7 +5,7 @@
  * npm run dev
  */
 
-import { extractAdmins, type AdminUser,type GuestUser } from "./exercise09.js";
+import { UserRegistry } from "./exercise10.js";
 
 // Example:
 // import { formatName } from './exercise01.js';
@@ -52,19 +52,35 @@ import { extractAdmins, type AdminUser,type GuestUser } from "./exercise09.js";
 
 // emitter.emit("launch", "Rocket launched!");
 // emitter.emit("shutdown", 10);
-const users: Array<AdminUser | GuestUser> = [
-  {
-    adminId: "A001",
-    permissions: ["read", "write"],
-  },
-  {
-    guestToken: "G001",
-    expiresAt: new Date(),
-  },
-  {
-    adminId: "A002",
-    permissions: ["read"],
-  },
-];
+// const users: Array<AdminUser | GuestUser> = [
+//   {
+//     adminId: "A001",
+//     permissions: ["read", "write"],
+//   },
+//   {
+//     guestToken: "G001",
+//     expiresAt: new Date(),
+//   },
+//   {
+//     adminId: "A002",
+//     permissions: ["read"],
+//   },
+// ];
 
-console.log(extractAdmins(users));
+// console.log(extractAdmins(users));
+import { UserRegistry } from "./exercise10.js";
+
+const registry = new UserRegistry();
+
+const user = registry.registerUser({
+  email: "richard@example.com",
+  passwordHash: "hashedPassword123",
+  profile: {
+    bio: "Computer science student",
+    avatarUrl: "profile.jpg",
+  },
+});
+
+console.log(user);
+
+console.log(registry.getUserView(user.id));
