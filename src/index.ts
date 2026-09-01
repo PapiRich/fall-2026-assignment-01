@@ -5,7 +5,7 @@
  * npm run dev
  */
 
-import { initializeConfig } from "./exercise05.js";
+import { calculateSubjectAverage } from "./exercise07.js";
 
 // Example:
 // import { formatName } from './exercise01.js';
@@ -28,4 +28,15 @@ import { initializeConfig } from "./exercise05.js";
 //   height: 10
 // }));
 //console.log(calculateArea({ kind: "square", sideLength: 5 }));
-console.log(initializeConfig({port: 5000}));
+//console.log(initializeConfig({port: 5000}));
+// const stack = new Stack<number>();
+
+// stack.push(10);
+// stack.push(20);
+// stack.push(30);
+
+// console.log(stack.peek());
+// console.log(stack.pop());
+// console.log(stack.size());
+console.log(calculateSubjectAverage("Math"));
+console.log(calculateSubjectAverage("History"));
