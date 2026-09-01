@@ -5,7 +5,7 @@
  * npm run dev
  */
 
-import { calculateSubjectAverage } from "./exercise07.js";
+import { SimpleEventEmitter, type EventMap } from "./exercise08.js";
 
 // Example:
 // import { formatName } from './exercise01.js';
@@ -38,5 +38,17 @@ import { calculateSubjectAverage } from "./exercise07.js";
 // console.log(stack.peek());
 // console.log(stack.pop());
 // console.log(stack.size());
-console.log(calculateSubjectAverage("Math"));
-console.log(calculateSubjectAverage("History"));
+// console.log(calculateSubjectAverage("Math"));
+// console.log(calculateSubjectAverage("History"));
+const emitter = new SimpleEventEmitter<EventMap>();
+
+emitter.on("launch", (data) => {
+  console.log("Launch:", data);
+});
+
+emitter.on("shutdown", (data) => {
+  console.log("Shutdown:", data);
+});
+
+emitter.emit("launch", "Rocket launched!");
+emitter.emit("shutdown", 10);
