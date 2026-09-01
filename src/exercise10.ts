@@ -35,10 +35,10 @@ export class UserRegistry {
       return undefined;
     }
 
-    return {
+    return Object.freeze({
       id: user.id,
       email: user.email,
       profile: user.profile,
-    };
+    });
   }
 }

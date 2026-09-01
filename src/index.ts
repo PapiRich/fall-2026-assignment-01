@@ -5,7 +5,7 @@
  * npm run dev
  */
 
-import { UserRegistry } from "./exercise10.js";
+//import { UserRegistry } from "./exercise10.js";
 
 // Example:
 // import { formatName } from './exercise01.js';
@@ -68,19 +68,35 @@ import { UserRegistry } from "./exercise10.js";
 // ];
 
 // console.log(extractAdmins(users));
-import { UserRegistry } from "./exercise10.js";
+import { processCommentsPipeline } from "./exercise15.js";
 
-const registry = new UserRegistry();
+// const registry = new UserRegistry();
 
-const user = registry.registerUser({
-  email: "richard@example.com",
-  passwordHash: "hashedPassword123",
-  profile: {
-    bio: "Computer science student",
-    avatarUrl: "profile.jpg",
-  },
-});
+// const user = registry.registerUser({
+//   email: "richard@example.com",
+//   passwordHash: "hashedPassword123",
+//   profile: {
+//     bio: "Computer science student",
+//     avatarUrl: "profile.jpg",
+//   },
+// });
 
-console.log(user);
 
-console.log(registry.getUserView(user.id));
+// console.log(user);
+
+// console.log(registry.getUserView(user.id));
+// import { logStatusToFile } from "./exercise11.js";
+
+// await logStatusToFile("status.txt", "System is running");
+
+// console.log("Status written to file");
+//const emails = await fetchUserEmails();
+// console.log(emails);
+// console.log(await fetchTodoSafe(1));
+// console.log(await fetchTodoSafe(99999));
+// const posts = await fetchPostBatch([1,2,3]);
+// console.log(posts);
+const count = await processCommentsPipeline(
+    1,"comment-output.json",
+);
+console.log(count);
